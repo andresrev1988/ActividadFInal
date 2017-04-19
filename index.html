@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta content="text/html"; charset="UTF-8" />
+    <script type="text/javascript" src="js/funciones.js"></script>
+	<title>Notas - Escuela</title>			
+</head>
+
+<body>
+<header>
+	<h1>Notas del Curso</h1>	
+	
+</header>
+
+<nav>
+	<button onclick="mostrarObjeto()"> Mostrar JSON</button>
+	<button onclick="mostrarPromedio()">Nota Promedio</button>
+	<button onclick="mostrarMayor()">Mayor Nota</button>
+	<button onclick="mostrarMenor()">Menor Nota</button>
+	<button onclick="mostrarAprobados()">Estudiantes Aprobados</button>
+	<button onclick="mostrarReprobados()">Estudiantes Reprobados</button>
+</nav>
+
+<p id="objetos"></p>
+<p id="promedio"></p>
+<p id="mayor"></p>
+<p id="menor"></p>
+<p id="aprobados"></p>
+<p id="reprobados"></p>
+
+
+
+</body>
+
+<script>
+notas_curso = [
+
+    {
+        "codigo": "001",
+        "nombre": "DIEGO RUIZ",
+        "nota": 93
+    } ,
+    {
+        "codigo": "002",
+        "nombre": "JUAN BALAREZO",
+        "nota": 70
+    } ,  
+    {
+        "codigo": "003",
+        "nombre": "PEDRO RIOS",
+        "nota": 20
+    } ,  
+    {
+        "codigo": "004",
+        "nombre": "ANDRES REVELO",
+        "nota": 98
+    } ,  
+    {
+        "codigo": "005",
+        "nombre": "ROSSANA SERRANO",
+        "nota": 88
+    } ,  
+    {
+        "codigo": "006",
+        "nombre": "FRANCISCO CORTEZ",
+        "nota": 55
+    } ,  
+    {
+        "codigo": "007",
+        "nombre": "MARIO MALDONADO",
+        "nota": 91
+    } ,  
+    {
+        "codigo": "008",
+        "nombre": "LORENA MANCERO",
+        "nota": 76
+    } ,  
+    {
+        "codigo": "009",
+        "nombre": "CESAR SALINAS",
+        "nota": 45
+    } ,  
+    {
+        "codigo": "010",
+        "nombre": "JUAN CASTILLO",
+        "nota": 10
+    }  
+];
+
+function mostrarObjeto(){
+    leerJSON("objetos",notas_curso);        
+}
+function mostrarPromedio(){
+        calcularPromedio("promedio",notas_curso);
+}
+function mostrarMayor(){
+    calcularMayor("mayor",notas_curso);
+}
+function mostrarMenor(){
+    calcularMenor("menor",notas_curso);
+}
+function mostrarAprobados(){
+    leerAprobados("aprobados",notas_curso);        
+}
+function mostrarReprobados(){
+    leerReprobados("reprobados",notas_curso);        
+}
+</script>
+</html>
