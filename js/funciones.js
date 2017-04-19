@@ -1,10 +1,8 @@
-function leerJSON(id,json) {	
-	try {
-		var out = "-----------Estudiantes-----------<br>";	
+function leerJSON(json) {	
+	try {		
 		for (var i = 0; i < json.length; i++) {
-			out += "Código:" + json[i].codigo + "-" + "Nombre:" + json[i].nombre + "-" + "Nota:" + json[i].nota + "<br>";			
+			addrow(json[i].codigo,json[i].nombre,json[i].nota);			
 		}
-		document.getElementById(id).innerHTML = out;	 
 	} catch (error) {
 		alert("Existe un Error" + " - " + error.message);
 	}
@@ -84,4 +82,14 @@ function leerReprobados(id,json) {
 	} catch (error) {
 		alert("Existe un Error" + " - " + error.message);
 	}
+}
+function addrow(celda1,celda2,celda3) {
+    var table = document.getElementById("Tabla");
+    var row = table.insertRow(0);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+    cell1.innerHTML = celda1;
+    cell2.innerHTML = celda2;
+    cell3.innerHTML = celda3;
 }

@@ -1,40 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta content="text/html"; charset="UTF-8" />
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <!--Importar la fuente de los íconos de Google-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Importar la hojas de estilos de materialize css-->
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/customColors.css" type="text/css" rel="stylesheet" media="screen,projection"/>
     <script type="text/javascript" src="js/funciones.js"></script>
 	<title>Notas - Escuela</title>			
 </head>
 
 <body>
-<header>
-	<h1>Notas del Curso</h1>	
-	
-</header>
-
-<nav>
-	<button onclick="mostrarObjeto()"> Mostrar JSON</button>
-	<button onclick="mostrarPromedio()">Nota Promedio</button>
-	<button onclick="mostrarMayor()">Mayor Nota</button>
-	<button onclick="mostrarMenor()">Menor Nota</button>
-	<button onclick="mostrarAprobados()">Estudiantes Aprobados</button>
-	<button onclick="mostrarReprobados()">Estudiantes Reprobados</button>
-</nav>
-
-<p id="objetos"></p>
-<p id="promedio"></p>
-<p id="mayor"></p>
-<p id="menor"></p>
-<p id="aprobados"></p>
-<p id="reprobados"></p>
-
-
-
+    <div class="row">
+        <div class="s12 m12 l12 col">
+            <div class="row">
+                <div class="s12 m12 l12 col">
+                    <h1>Registro de Estudiantes</h1>	
+                    <div class="row">
+                        <form class="col s4 m4 l4">                    
+                            <label for="codigo">Código</label>
+                            <input id="cod" type="text">
+                            <label for="nombre">Nombre</label>
+                            <input id="nom" type="text">
+                            <label for="nota">Nota</label>
+                            <input id="not" type="number"  min="0" max="100" class="validate">
+                            <button class="waves-effect waves-light btn" onclick="mostrarObjeto()"> Registrar Estudiante</button>
+                        </form>
+                    </div> 
+                    <div class="row">
+                        <div class="s12 m12 l12 col">    
+                            <a class="waves-effect waves-light btn" onclick="mostrarPromedio()">Nota Promedio</a>
+                            <a class="waves-effect waves-light btn" onclick="mostrarMayor()">Mayor Nota</a>
+                            <a class="waves-effect waves-light btn" onclick="mostrarMenor()">Menor Nota</a>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="s12 m12 l12 col">
+                    <h1>Listado de Estudiantes</h1> 
+                    <p id="aprobados"></p>
+                    <p id="reprobados"></p>
+                </div>    
+            </div>
+            
+            <div class="row">
+                <div class="s12 m12 l12 col">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CODIGO</th>
+                            <th>NOMBRE</th>
+                            <th>NOTA</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Tabla">                        
+                    </tbody>
+                </table>                
+                </div>
+            </div>
+        </div>
+    </div>    
 </body>
 
 <script>
 notas_curso = [
-
     {
         "codigo": "001",
         "nombre": "DIEGO RUIZ",
@@ -88,7 +120,7 @@ notas_curso = [
 ];
 
 function mostrarObjeto(){
-    leerJSON("objetos",notas_curso);        
+    leerJSON(notas_curso);        
 }
 function mostrarPromedio(){
         calcularPromedio("promedio",notas_curso);
@@ -99,11 +131,10 @@ function mostrarMayor(){
 function mostrarMenor(){
     calcularMenor("menor",notas_curso);
 }
-function mostrarAprobados(){
-    leerAprobados("aprobados",notas_curso);        
+
+function inserta_celda(){
+    addrow("uno","dos","tres");
 }
-function mostrarReprobados(){
-    leerReprobados("reprobados",notas_curso);        
-}
+
 </script>
 </html>
